@@ -28,12 +28,7 @@ const cheerio = require('cheerio')
                 drugName = "Check your spelling"
             }
             console.log(drugName,'1??')
-            // try{
-            //     drugName = $('.ddc-media-title').text().split(' ')[0]
-            // }
-            // catch(err){
-            //     drugName = "Check your spelling"
-            // }
+
                 
 
             return{
