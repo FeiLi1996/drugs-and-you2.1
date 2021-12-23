@@ -22,4 +22,4 @@ server.use('/',diseaseRoute)
 server.use('/',interactionRoute)
 server.use(catchAllRoute)
 
-server.listen(port,console.log('server listening to 5000'))
+server.listen(port,console.log(`server listening to ${port}`))

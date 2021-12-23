@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
-const puppeteer = require('puppeteer');
+const fetch =require("node-fetch")
+const cheerio = require('cheerio')
 
 
 
@@ -12,36 +13,44 @@ const puppeteer = require('puppeteer');
         const gettingDrugName = async (name) =>{
             let drugUrl = `https://www.drugs.com/search.php?searchterm=${name}`
         
-            let browser = await puppeteer.launch()
-            let page = await browser.newPage()
-            
-        
-            await page.goto(drugUrl , {waitUntil: 'load', timeout: 0})
-        
-            const data = await page.evaluate(()=>{
-                let drugName
-                try{
-                    drugName = document.querySelectorAll('.ddc-media-title')[0].innerText; 
-                }
-                catch(err){
-                    drugName = "Check your spelling"
-                }
-               
-               
-                return{
-                    drugName
-                }
-            })
-            await browser.close()
-            return   {
-                data
+            let response = await fetch(drugUrl)
+            let body = await response.text()
+            const $ = cheerio.load(body)
+
+            let drugName;
+            let searchDrug;
+            searchDrug = $('.ddc-media-title').text().split(' ')[0]
+
+            if(searchDrug){
+                drugName=searchDrug
             }
+            else{
+                drugName = "Check your spelling"
+            }
+            console.log(drugName,'1??')
+            // try{
+            //     drugName = $('.ddc-media-title').text().split(' ')[0]
+            // }
+            // catch(err){
+            //     drugName = "Check your spelling"
+            // }
+                
+
+            return{
+
+                drugName
+            }
+
+
+   
+      
+     
         }
         const drugNameTest =   gettingDrugName (req.body.drugName)
-        //console.log(drugNameTest)
+        console.log(drugNameTest,'2')
         drugNameTest.then(result =>
-            //console.log(result.data)
-            res.json(result.data)
+            //console.log(result.drugName,'2') //{ drugName: 'Aspirin ' } 2
+            res.json({"drugName":result.drugName})
 
         )
       
