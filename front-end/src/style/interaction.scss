@@ -1,0 +1,95 @@
+.interaction_wrapper_overall{
+    background-color: #8bbee8ff;
+    // margin-top: -20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    .interactionInformations_wrapper{
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+#loading_message{
+    margin-top: 25px;
+    font-size: 25px;
+    color: rgb(51, 32, 226);
+}
+
+
+
+.individualInteraction_wrapper{
+    text-align: left;
+    word-wrap: break-word;
+    #interaction_drugName,#interaction_diseaseName,#interaction_severity,#preposition{
+        margin: 5px;
+    }
+    
+    #interaction_drugName{
+        color: rgb(51, 32, 226);
+        font-weight: bold;
+    }
+    
+    
+    #interaction_diseaseName{
+        color: brown;
+        font-weight: bold;
+    }
+    #severity_category{
+        color: rgb(208, 44, 44)
+    }
+    .noShow{
+        display: none;
+    }
+    .yesShow{
+        display: block;
+    }
+    transition-duration: 5s;
+    transition-delay: 2s;
+
+}
+.individualInteraction_wrapper:hover{
+    
+    .noShow{
+        
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1000px){
+    .interaction_wrapper_overall{
+        .interactionInformations_wrapper{
+            display: grid;
+            grid-template-columns: 1fr;
+    
+        }
+    }
+}
+
+
+@media screen and (max-width: 560px){
+    .interaction_wrapper_overall{
+        
+        .interactionInformations_wrapper{
+            word-break: break-all; 
+            margin-left:-40px;
+            transform: scale(0.8);
+    
+        }
+    }
+}

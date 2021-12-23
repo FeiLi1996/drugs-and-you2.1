@@ -1,0 +1,57 @@
+.profile_wrapper_overall{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(203, 201, 236);
+}
+
+
+
+
+.fake_button_action_delete,.fake_button_action_add{
+
+    margin: 2px;
+    padding: 1px 6px 1px 6px;
+    cursor: pointer;
+    
+    border-radius: 50%;
+}
+
+
+.fake_button_action_delete{
+
+    font-size: 70%;
+    background-color: rgb(236, 113, 113);
+    &:hover{
+        color:red;
+    }
+   
+}
+
+
+.fake_button_action_add{
+
+   
+    background-color: rgb(174, 157, 236);
+    &:hover{
+        color:blue;
+    }
+   
+}
+
+
+.drug_search,.disease_search{
+    list-style-type: circle;
+}
+
+
+
+@media screen and (max-width: 700px){
+    .profile_wrapper_overall{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+
+    }
+}
