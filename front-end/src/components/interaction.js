@@ -1,10 +1,6 @@
 import React, { useState,useContext } from 'react'
 
-
-
-
 import { GlobalContext } from '../GlobalContext'
-
 import httpClient from '../helper/httpClient'
 
 
@@ -14,30 +10,13 @@ const Interactions = () => {
     let [toggleDescriptionDisplayBoolean,setToggleDescriptionDisplayBoolean] = useState(false)
 
 
-    let [interactionsInfo,setInteractionsInfo] =useState([
-
-        // {   
-        //     drugName:'aspirin',
-        //     diseaseName:'Asthma',
-        //     description:'blah',
-        //     severity:'mod'
-        // },
-        // {   
-        //     drugName:'aspirin',
-        //     diseaseName:'Fluid Retention',
-        //     description:'blah',
-        //     severity:'med'
-        // },
-   
-    ]);
+    let [interactionsInfo,setInteractionsInfo] =useState([]);
     let [loadingMessage,setLoadingMessage] =useState('')
    
     async function handleDrugDiseaseAnalysis (){
 
         if(Array.isArray(drugProfile) && drugProfile.length && Array.isArray(diseaseProfile) && diseaseProfile.length){
 
-            console.log(drugProfile)
-            console.log(diseaseProfile)
             
             setLoadingMessage('Loading...Sip a coffee.')
             
@@ -46,7 +25,7 @@ const Interactions = () => {
                     "drugName":eachDrug
                     })})
             var ArrayOfResults = await Promise.all(promiseArray);
-            console.log(ArrayOfResults);
+  
             ArrayOfResults.map(result=>
                 
                 setInteractionsInfo(interactionsInfo=>[...interactionsInfo,...result.data]),
@@ -78,7 +57,7 @@ const Interactions = () => {
 
                 if(tempDiseaseName.includes(',')){
                     tempDiseaseName =tempDiseaseName.split(',')[0]
-                    //console.log(tempDiseaseName)
+
                 }
                 if(tempDiseaseName.length >= 10){
                     tempDiseaseName = tempDiseaseName.substring(0,tempDiseaseName.length-2)
@@ -86,7 +65,7 @@ const Interactions = () => {
 
                 if(eachDrugDescription.includes("'s")){
                     eachDrugDescription= eachDrugDescription.replace(/'s/g, '')
-                    //console.log(eachDrugDescription)
+    
                 }
                 
                 if(eachDrugDescription.includes(tempDiseaseName)){
@@ -109,47 +88,10 @@ const Interactions = () => {
             return null
         }) 
 
-        console.log(interactionsInfo)
-        console.log(displayedDescriptionAndSeverity)
         return displayedDescriptionAndSeverity
    
     }
-
-
-
-    // arr1=[3,3,4,5,6]
-// arr2=[4,6,4,7,8]
-
-// arr = []
-
-//     arr=arr1.map(element =>{
-        
-//         for(let el in arr2){
-//             console.log(element,'arr1','loop1')
-//             console.log(el,'arr2','loop2')
-            
-//             return(arr2[el] + element)
-//         }
-//         console.log('space')
-//     })
-    
-    
-// console.log(arr,'final arr');
-// 3 'arr1' 'loop1'
-// 0 arr2 loop2
-// 3 'arr1' 'loop1'
-// 0 arr2 loop2
-// 4 'arr1' 'loop1'
-// 0 arr2 loop2
-// 5 'arr1' 'loop1'
-// 0 arr2 loop2
-// 6 'arr1' 'loop1'
-// 0 arr2 loop2
-// [ 7, 7, 8, 9, 10 ] 'final arr'
-
-
-
-        
+ 
 
     function toggleDescription() {
         setToggleDescriptionDisplayBoolean(toggleDescriptionDisplayBoolean => !toggleDescriptionDisplayBoolean)
@@ -182,13 +124,10 @@ const Interactions = () => {
             </div>
 
             <div className='interactionInformations_wrapper'>
-                {/* {displayedDescriptionAndSeverity} */}
+
                 {generatingDescriptionAndSeverityComponents()}
             </div>
-
-            
-          
-       
+    
         </div>
     )
 

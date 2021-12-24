@@ -11,30 +11,7 @@ import Introduction from '../components/intro'
 const HomePage = () => {
     const [drugProfile,setDrugProfile] = useState(['Ibuprofen','Aspirin','Propranolol']);
     const [diseaseProfile,setDiseaseProfile] = useState(['Asthma','Glaucoma','Hyperlipidemia']);
-   
-  
-    // let INITIAL_STATE={
-    //     drugProfile:[],
-    //     diseaseProfile:[],
-    //     drugDiseaseInteractionInfo:[
-    //         {
-    //             drugName:'ibuprofen',
-    //             interactionList:[],
-    //             interactionDescriptionAndSeverity:[
-    //                 {   
-    //                     diseaseName:'Asthma',
-    //                     description:'blah',
-    //                     severity:'blah'
-    //                 },
-    //                 {   
-    //                     diseaseName:'Fluid Retention',
-    //                     description:'blah',
-    //                     severity:'blah'
-    //                 },
-    //             ]
-    //         }
-    //     ]
-    // }
+
     return(
 
 

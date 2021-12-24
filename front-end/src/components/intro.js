@@ -10,7 +10,7 @@ const Introduction = () => {
 
             <div className='intro_wrapper'>
                 <div className='app_name_wrapper'>
-                    <h1 className='app_name'>Drugs and You2</h1>
+                    <h1 className='app_name'>Drugs and You2.1</h1>
                 </div>
                 <div className='please_read_wrapper'>
                     <h3 className='please_read'>Please Read!</h3>
@@ -19,6 +19,7 @@ const Introduction = () => {
                         <li>Test case: drug->ibuprofen and disease->hypertension</li>
                         <li>Currently only <strong>generic names</strong> work!</li>
                         <li><strong>No Brand Names!!!</strong></li>
+                        <li>Hover each interaction for more information or click toggle reveal</li>
 
                     </ul>
                 </div>

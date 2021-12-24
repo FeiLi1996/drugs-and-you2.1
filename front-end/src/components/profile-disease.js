@@ -9,8 +9,6 @@ const ProfileDisease = () => {
     const {diseaseProfile,setDiseaseProfile} = useContext(GlobalContext)
     const [searchResult,setSearchResult] = useState([])
 
-    
-   //api calls
    function deleteDiseaseFromProfile(idx){
         let tempCopy
         tempCopy = JSON.parse(JSON.stringify(diseaseProfile));
@@ -19,9 +17,7 @@ const ProfileDisease = () => {
    }
    function addDiseaseProfile (newDisease){
 
-    // let tempCopy;
 
-    // tempCopy = JSON.parse(JSON.stringify(drugProfile));
     setDiseaseProfile([...diseaseProfile,newDisease])
     setSearchResult([])
  
@@ -56,17 +52,15 @@ const ProfileDisease = () => {
                 }
 
             }
-            
-
-        //setSearchResult(response.data.drugName)   
+ 
         }).catch(error=>{
             console.log(error)
         })
-       //setSearchResult([event.target.disease_name.value])   
+
       
    }
 
-   console.log('hello')
+
     return(
 
 
