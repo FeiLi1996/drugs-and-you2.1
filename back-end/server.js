@@ -11,9 +11,6 @@ const catchAllRoute = require('./routes/catchAll');
 const port = 5000;
 
 
-
-
-
 server.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 server.use(bodyParser.json());
 
